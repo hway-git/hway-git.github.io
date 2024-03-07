@@ -8,6 +8,7 @@ export default {
                 text: '工作日志',
                 items: [ // 可以配置成下拉
                     { text: '24年02月', link: '/work/202402' },
+                    { text: '24年03月', link: '/work/202403' },
                 ]
             }
         ],

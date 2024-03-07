@@ -12,5 +12,12 @@ export default {
             }
         ],
         socialLinks: [{ icon: "github", link: "https://github.com/madderbughaha" }], // 可以连接到 github
+        footer: {
+            message: 'Released under the MIT License.',
+            copyright: 'Copyright © 2024 Madderbughaha 转载请注明出处'
+          }
     },
+    vite: {
+        favicon: "favicon.ico"
+    }
 }

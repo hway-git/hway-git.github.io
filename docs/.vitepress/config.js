@@ -1,3 +1,5 @@
+import timeline from "vitepress-markdown-timeline"
+
 export default {
     title: 'Byrhz',
     description: 'byrhz 的个人空间',
@@ -19,5 +21,11 @@ export default {
     },
     vite: {
         favicon: "favicon.ico"
-    }
+    },
+    markdown: {
+        // ...
+        config: (md) => {
+          md.use(timeline);
+        },
+    },
 }

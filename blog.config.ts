@@ -1,0 +1,55 @@
+import type { BundledLanguage, BundledTheme } from 'shiki'
+
+// 存储 nuxt.config 和 app.config 共用的配置
+const blogConfig = {
+    title: `Hiwayo's Space`,
+    subtitle: '不争不抢, 自有岁月打赏',
+    description: 'Hiwayo的个人空间，分享技术与生活。',
+    author: {
+        name: 'Hiwayo',
+        avatar: 'https://ahway.space/favicon.ico',
+        email: '2670132411@qq.com',
+        homepage: 'https://ahway.space/',
+    },
+    copyright: {
+        abbr: 'CC BY-NC-SA 4.0',
+        name: '署名-非商业性使用-相同方式共享 4.0 国际',
+        url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans',
+    },
+    favicon: 'https://ahway.space/favicon.ico',
+    language: 'zh-CN',
+    timeEstablished: '2024-11-17',
+    timezone: 'Asia/Shanghai',
+    url: 'https://ahway.space/',
+
+    feed: {
+        limit: 50,
+    },
+
+    hideContentPrefixes: ['/posts'],
+
+    imageDomains:  [],
+
+    robotsNotIndex: ['/preview', '/previews/*'],
+
+    scripts: [
+        
+    ],
+
+    // 用于 Shiki、Plain Shiki 引入代码高亮
+    // 同时用于显示代码块语言对应的 Iconify Catppuccin 图标
+    shiki: {
+        langs: <BundledLanguage[]>['bat', 'c', 'cpp', 'css', 'diff', 'html', 'ini', 'java', 'js', 'json', 'log', 'makefile', 'matlab', 'md', 'mdc', 'powershell', 'python', 'sh', 'ssh-config', 'toml', 'ts', 'tsx', 'vb', 'vue', 'xml', 'yaml'],
+        themes: <BundledTheme[]>['catppuccin-latte', 'one-dark-pro'],
+        defaultTheme: <BundledTheme>'catppuccin-latte',
+        darkTheme: <BundledTheme>'one-dark-pro',
+    },
+
+    twikoo: {
+        js: 'https://gcore.jsdelivr.net/npm/twikoo@1.6.39/dist/twikoo.all.min.js',
+        envId: 'https://twikoo.ahway.space/',
+        preload: 'https://twikoo.ahway.space/',
+    },
+}
+
+export default blogConfig

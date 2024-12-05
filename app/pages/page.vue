@@ -11,7 +11,7 @@ const sortOrder = ref(appConfig.pagination.sortOrder || 'date')
 const isAscending = ref<boolean>()
 
 const layoutStore = useLayoutStore()
-layoutStore.setAside(['blog_stats', 'connectivity'])
+layoutStore.setAside(['blog_stats'])
 
 const { data: listRaw } = await useAsyncData(
     'posts_index',

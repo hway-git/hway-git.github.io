@@ -63,7 +63,6 @@ export default defineAppConfig({
             items: [
                 { icon: 'ph:files-bold', text: '文章', url: '/' },
                 { icon: 'ph:archive-bold', text: '归档', url: '/archive' },
-                { icon: 'ph:columns-bold', text: '专栏', url: '/column' },
             ],
         },
     ],

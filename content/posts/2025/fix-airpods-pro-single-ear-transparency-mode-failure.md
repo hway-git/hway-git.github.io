@@ -2,9 +2,8 @@
 title: 记一次 AirPods Pro2 单边通透模式失效问题
 description: 服役两年半的airpods pro2 最近出现通透模式失效的情况，戴久了头晕目眩的，网上找到一个很有用的解决方法，遂分享一下。
 date: 2025-02-20 15:14:44
-# updated: 
+updated: 2025-02-20 19:17:44
 # image: 
-# type: story
 categories: [生活]
 tags: [博客]
 recommend: true

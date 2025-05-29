@@ -9,6 +9,7 @@ export default defineAppConfig({
         categories: {
             经验分享: { icon: 'ph:mouse-bold', color: '#3af' },
             生活: { icon: 'ph:shooting-star-bold', color: '#3ba' },
+            阅读: { icon: 'f7:book', color: '#77f' },
             代码: { icon: 'ph:code-bold', color: '#77f' },
         },
         order: {
@@ -44,7 +45,7 @@ export default defineAppConfig({
     },
 
     header: {
-        logo: 'https://weavatar.com/avatar/ac66474322cfb6261e8ef75d83606c1aa16ee3e7729fb57a03e3b6214455b8b4?s=160',
+        logo: 'https://weavatar.com/avatar/d56bcf5d748c3c50fd8b1bcde5105660dd1eb9d3c673f465eff9207742b29433?s=320',
         text: true,
         subtitle: blogConfig.subtitle,
         emojiTail: ['👋', '🦑', '🙌', '🐟', '💻'],

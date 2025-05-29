@@ -3,7 +3,7 @@ title: 被微信读书营销了
 description: 最近在微信读书上偶然翻到“365天阅读挑战”，被“策划”狠狠拿捏了一把。
 date: 2025-05-29 19:43:13
 updated: 2025-05-29 20:43:13
-# image: 
+image: https://imgur.ahway.space/1748523733092.png
 type: tech
 categories: [阅读]
 tags: [博客]

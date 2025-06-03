@@ -3,7 +3,7 @@ import type { BundledLanguage, BundledTheme } from 'shiki'
 // 存储 nuxt.config 和 app.config 共用的配置
 const blogConfig = {
     title: `Hiwayo's Space`,
-    subtitle: '骐骥一跃,不能十步;驽马十驾,功在不舍。',
+    subtitle: '🏃🏻骐骥一跃,不能十步;驽马十驾,功在不舍。',
     description: 'Hiwayo的个人空间,分享技术与生活。',
     author: {
         name: 'Hiwayo',

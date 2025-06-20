@@ -28,12 +28,12 @@ const blogConfig = {
 
     hideContentPrefixes: ['/posts'],
 
-    imageDomains:  [],
+    imageDomains: [],
 
     robotsNotIndex: ['/preview', '/previews/*'],
 
     scripts: [
-        
+
     ],
 
     // 用于 Shiki、Plain Shiki 引入代码高亮

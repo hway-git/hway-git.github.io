@@ -392,7 +392,6 @@ active: 2 # 默认显示第二个选项卡，可选
 支持mermaid渲染，使用方式
 
 ````md
-
 ```mermaid
 sequenceDiagram
     participant Alice
@@ -410,7 +409,6 @@ description: JavaScript based diagramming and charting tool
 link: "https://mermaid.js.org"
 ---
 ::
-
 
 ## 组件使用方法
 

@@ -35,8 +35,7 @@ const isMermaid = ref<boolean>(props.language === 'mermaid')
 const codeblock = useTemplateRef('codeblock')
 const copyBtn = useTemplateRef('copy-btn')
 
-useCopy(copyBtn, codeblock, isMermaid?props.code:undefined)
-
+useCopy(copyBtn, codeblock, isMermaid.value ? props.code : undefined)
 </script>
 
 <template>
@@ -62,10 +61,12 @@ useCopy(copyBtn, codeblock, isMermaid?props.code:undefined)
         </figcaption>
 
         <!-- 不要换行 -->
-        <pre v-if="!isMermaid" 
-            ref="codeblock" 
-            class="scrollcheck-x" 
-            :class="[props.class, { wrap: isWrap }]"><slot /></pre>
+        <pre
+            v-if="!isMermaid"
+            ref="codeblock"
+            class="scrollcheck-x"
+            :class="[props.class, { wrap: isWrap }]"
+        ><slot /></pre>
         <Mermaid v-else>
             {{ code }}
         </Mermaid>

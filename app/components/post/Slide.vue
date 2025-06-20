@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import type ArticleProps from '~/types/article'
 import Autoplay from 'embla-carousel-autoplay'
 import emblaCarouselVue from 'embla-carousel-vue'
-import type ArticleProps from '~/types/article'
 
 defineProps<{ list: ArticleProps[] }>()
 

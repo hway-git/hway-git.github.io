@@ -1,6 +1,6 @@
 import type { ArticleOrderType } from './types/article'
-import blogConfig from '~~/blog.config'
 import type { Nav, NavItem } from '~/types/nav'
+import blogConfig from '~~/blog.config'
 
 export default defineAppConfig({
     ...blogConfig,

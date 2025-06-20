@@ -41,7 +41,6 @@ graph TD
   A --> B
 ```
 
-
 🤔 理想情况下实现这样的效果，应该需要封装这么一个组件：接收 markdown 中代码块的文本内容，识别出 mermaid 语法并通过 mermaid.js 渲染出来。it's time to try~
 
 ---
@@ -54,15 +53,15 @@ graph TD
 import mermaid from 'mermaid'
 
 export default defineNuxtPlugin(() => {
-  mermaid.initialize({
-    startOnLoad: false,
-  })
+    mermaid.initialize({
+        startOnLoad: false,
+    })
 
-  return {
-    provide: {
-      mermaid
+    return {
+        provide: {
+            mermaid
+        }
     }
-  }
 })
 ```
 
@@ -75,12 +74,6 @@ export default defineNuxtPlugin(() => {
 3. 把 SVG 插进页面里
 
 ```vue [Mermaid.vue]
-<template>
-  <pre ref="el" :style="{ display: rendered ? 'block' : 'none' }" class="not-prose">
-    {{ mermaidSyntax }}
-  </pre>
-</template>
-
 <script setup>
 import { nodeTextContent } from '@nuxtjs/mdc/runtime/utils/node'
 
@@ -91,37 +84,48 @@ const slots = useSlots()
 const { $mermaid } = useNuxtApp()
 
 const mermaidSyntax = computed(() => {
-  rerenderCounter.value // 手动依赖，触发更新
+    rerenderCounter.value // 手动依赖，触发更新
 
-  const defaultSlot = slots.default?.()[0]
-  if (!defaultSlot) return ''
+    const defaultSlot = slots.default?.()[0]
+    if (!defaultSlot)
+        return ''
 
-  // 兼容不同 Markdown 解析形式
-  if (typeof defaultSlot.children === 'string') return defaultSlot.children
+    // 兼容不同 Markdown 解析形式
+    if (typeof defaultSlot.children === 'string')
+        return defaultSlot.children
 
-  const codeChild = defaultSlot.children?.default?.()?.[0]
-  if (!codeChild || codeChild.type !== 'code') return ''
-  return typeof codeChild.children === 'string'
-    ? codeChild.children
-    : nodeTextContent(codeChild.children)
+    const codeChild = defaultSlot.children?.default?.()?.[0]
+    if (!codeChild || codeChild.type !== 'code')
+        return ''
+    return typeof codeChild.children === 'string'
+        ? codeChild.children
+        : nodeTextContent(codeChild.children)
 })
 
 async function render() {
-  if (!el.value || !mermaidSyntax.value) return
-  if (el.value.querySelector('svg')) return
+    if (!el.value || !mermaidSyntax.value)
+        return
+    if (el.value.querySelector('svg'))
+        return
 
-  rendered.value = true
-  await $mermaid.run({nodes:[el.value]})
+    rendered.value = true
+    await $mermaid.run({ nodes: [el.value] })
 }
 
 onBeforeUpdate(() => {
-  rerenderCounter.value++
+    rerenderCounter.value++
 })
 
 onMounted(() => {
-  render()
+    render()
 })
 </script>
+
+<template>
+    <pre ref="el" :style="{ display: rendered ? 'block' : 'none' }" class="not-prose">
+    {{ mermaidSyntax }}
+  </pre>
+</template>
 ```
 
 ## 🧩 修改`ProsePre`
@@ -132,7 +136,7 @@ onMounted(() => {
 // 当 language 为 mermaid 时,隐藏codeblock, 将内容传递给 Mermaid 组件
 <script setup>
 ...
-const isMermaid = ref<boolean>(props.language === 'mermaid')    
+const isMermaid = ref<boolean>(props.language === 'mermaid')
 </script>
 
 <template>
@@ -177,23 +181,22 @@ const isMermaid = ref<boolean>(props.language === 'mermaid')
 
 ### ✅ 解决方案：每个图用唯一的 ID Seed
 
-
 修改插件内容, 设置自定义ID
 
 ```ts [mermaid.client.ts]
 import mermaid from 'mermaid'
 
 export default defineNuxtPlugin(() => {
-  mermaid.initialize({
-    startOnLoad: false,
-    deterministicIds: true, // 设置为 true, Mermaid.vue 中必须通过 render() 方法来渲染图表, 传入ID
-  })
+    mermaid.initialize({
+        startOnLoad: false,
+        deterministicIds: true, // 设置为 true, Mermaid.vue 中必须通过 render() 方法来渲染图表, 传入ID
+    })
 
-  return {
-    provide: {
-      mermaid
+    return {
+        provide: {
+            mermaid
+        }
     }
-  }
 })
 ```
 
@@ -201,12 +204,12 @@ export default defineNuxtPlugin(() => {
 
 ```ts
 export function useStableMermaidId(code: string, prefix = 'mermaid') {
-  let hash = 0
-  for (let i = 0; i < code.length; i++) {
-    hash = ((hash << 5) - hash) + code.charCodeAt(i)
-    hash |= 0
-  }
-  return `${prefix}-${Math.abs(hash)}`
+    let hash = 0
+    for (let i = 0; i < code.length; i++) {
+        hash = ((hash << 5) - hash) + code.charCodeAt(i)
+        hash |= 0
+    }
+    return `${prefix}-${Math.abs(hash)}`
 }
 ```
 

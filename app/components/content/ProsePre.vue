@@ -35,7 +35,8 @@ const isMermaid = ref<boolean>(props.language === 'mermaid')
 const codeblock = useTemplateRef('codeblock')
 const copyBtn = useTemplateRef('copy-btn')
 
-useCopy(copyBtn, codeblock)
+useCopy(copyBtn, codeblock, isMermaid?props.code:undefined)
+
 </script>
 
 <template>
@@ -51,7 +52,7 @@ useCopy(copyBtn, codeblock)
             <span v-else />
             <span v-if="language" class="language">{{ language }}</span>
             <div class="operations">
-                <button @click="isWrap = !isWrap">
+                <button v-if="!isMermaid" @click="isWrap = !isWrap">
                     {{ isWrap ? '横向滚动' : '自动换行' }}
                 </button>
                 <button ref="copy-btn">
@@ -60,11 +61,11 @@ useCopy(copyBtn, codeblock)
             </div>
         </figcaption>
 
-        <!-- 嘿嘿，不要换行 -->
-        <pre v-if="!isMermaid" ref="codeblock" class="scrollcheck-x"
-        :class="[props.class, { wrap: isWrap }]">
-            <slot />
-        </pre>
+        <!-- 不要换行 -->
+        <pre v-if="!isMermaid" 
+            ref="codeblock" 
+            class="scrollcheck-x" 
+            :class="[props.class, { wrap: isWrap }]"><slot /></pre>
         <Mermaid v-else>
             {{ code }}
         </Mermaid>

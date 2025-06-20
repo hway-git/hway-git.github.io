@@ -36,7 +36,7 @@ Nuxt Content 使用 Markdown 语法和约定来提供丰富的文本编辑体验
 
 #### 链接 `ProseA`
 
-[这是内部链接](#链接-prosea)。[站外链接](https://zhilu.cyou) 默认在新标签页打开，并在鼠标悬浮时展示域名。
+[这是内部链接](#链接-prosea)。[站外链接](https://www.baidu.com) 默认在新标签页打开，并在鼠标悬浮时展示域名。
 
 还会根据域名展示图标，例如 [微软文档](https://learn.microsoft.com/zh-cn/)、[GitHub](https://github.com/)、[Bilibili](https://www.bilibili.com/)、[QQ 官网](https://im.qq.com/)、[微信公众号](https://mp.weixin.qq.com/) 等。
 
@@ -144,10 +144,8 @@ feature: |
 
 可以 :badge[带个图]{img="https://picsum.photos/100/100"} 也可以只有图 :badge{img="https://picsum.photos/100/100" round}，也能指定方形 :badge{img="https://picsum.photos/100/100" square}
 
-外部域名自动获取站点图标 :badge[纸鹿]{link="https://www.baidu.com"}，
-:badge[古怪杂记本]{link="https://gug.thisis.host/" square}，
-GitHub链接能自动识别头像 :badge[KazariEX]{link="https://github.com/KazariEX"}，
-也可指定方形 :badge[isYangs/GioPic]{square link="https://github.com/isYangs/GioPic"}。
+外部域名自动获取站点图标 :badge[百度]{link="https://www.baidu.com"}，
+GitHub链接能自动识别头像 :badge[Hiwayo]{link="https://github.com/hway-git"}，
 
 ::alert
 #title
@@ -185,11 +183,11 @@ GitHub链接能自动识别头像 :badge[KazariEX]{link="https://github.com/Kaza
 
 我们可以聊聊天
 
-{.纸鹿}
+{.我}
 
 我还可以有名字
 
-{:纸鹿撤回了一条消息}
+{:我撤回了一条消息}
 
 {用户1}
 
@@ -388,6 +386,31 @@ active: 2 # 默认显示第二个选项卡，可选
 #### Tip
 
 :tip[我是一条小提示]{tip="提示的内容是提示"}， :tip[我没有图标]{icon tip="或许也可以没有内容"}， :tip[+v 点击就能复制，太方便了！]{copy}
+
+#### Mermaid
+
+支持mermaid渲染，使用方式
+
+````md
+
+```mermaid
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Bob->>Alice: Hi Alice
+    Alice->>Bob: Hello Bob
+```
+````
+其他参考见文档
+::link-card
+---
+icon: https://avatars.githubusercontent.com/u/57169982
+title: Mermaid
+description: JavaScript based diagramming and charting tool
+link: "https://mermaid.js.org"
+---
+::
+
 
 ## 组件使用方法
 

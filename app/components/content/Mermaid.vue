@@ -13,6 +13,10 @@ const el = ref(null)
 const rendered = ref(false)
 const rerenderCounter = ref(1)
 const slots = useSlots()
+const { $mermaid } = useNuxtApp()
+
+const colorMode = useColorMode()
+const currentTheme = computed(() => colorMode.value === 'dark' ? 'dark' : 'default')
 
 const mermaidSyntax = computed(() => {
   // Trick to force re-render when the slot content changes (for preview inside studio)
@@ -43,27 +47,34 @@ const mermaidSyntax = computed(() => {
   return nodeTextContent(codeChild.children)
 })
 
+watch(currentTheme, (theme) => {
+  $mermaid.initialize({
+    startOnLoad: false,
+    deterministicIds: true,
+    theme
+  })
+  rendered.value = false
+  nextTick(render)
+})
+
 async function render() {
   if (!el.value) {
     return
   }
-  if (el.value.querySelector('svg')) {
-    // Already rendered
-    return
-  }
-
   // // Iterate children to remove comments
   for (const child of el.value.childNodes) {
     if (child.nodeType === Node.COMMENT_NODE) {
       el.value.removeChild(child)
     }
   }
-  const { default: mermaid } = await import("mermaid")
-  const colorMode = useColorMode()
   
-  await mermaid.initialize({startOnLoad:false, theme: colorMode.value})
   rendered.value = true
-  await mermaid.run({ nodes: [el.value] })
+  if ($mermaid && mermaidSyntax.value) {
+    const id = useStableMermaidId(mermaidSyntax.value)
+    const result = await $mermaid.render(id, mermaidSyntax.value, el.value)
+    el.value.innerHTML = result.svg
+  }
+  
 }
 
 onBeforeUpdate(() => {
@@ -71,6 +82,11 @@ onBeforeUpdate(() => {
 })
 
 onMounted(() => {
+  $mermaid.initialize({
+    startOnLoad: false,
+    deterministicIds: true,
+    theme: currentTheme.value
+  })
   render()
 })
 

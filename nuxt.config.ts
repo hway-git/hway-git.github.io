@@ -100,7 +100,7 @@ export default defineNuxtConfig({
             search: {},
         },
         highlight: {
-            langs: blogConfig.shiki.langs,
+            langs: [...blogConfig.shiki.langs, 'mermaid'],
             theme: {
                 default: blogConfig.shiki.defaultTheme,
                 dark: blogConfig.shiki.darkTheme,

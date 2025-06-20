@@ -30,6 +30,7 @@ const meta = computed(() => {
 
 const icon = computed(() => meta.value.icon || getFileIcon(props.filename) || getLangIcon(props.language))
 const isWrap = ref(meta.value.wrap)
+const isMermaid = ref<boolean>(props.language === 'mermaid')
 
 const codeblock = useTemplateRef('codeblock')
 const copyBtn = useTemplateRef('copy-btn')
@@ -60,11 +61,13 @@ useCopy(copyBtn, codeblock)
         </figcaption>
 
         <!-- 嘿嘿，不要换行 -->
-        <pre
-            ref="codeblock"
-            class="scrollcheck-x"
-            :class="[props.class, { wrap: isWrap }]"
-        ><slot /></pre>
+        <pre v-if="!isMermaid" ref="codeblock" class="scrollcheck-x"
+        :class="[props.class, { wrap: isWrap }]">
+            <slot />
+        </pre>
+        <Mermaid v-else>
+            {{ code }}
+        </Mermaid>
     </figure>
 </template>
 

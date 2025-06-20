@@ -23,6 +23,7 @@
     "embla-carousel-autoplay": "^8.4.0",
     "embla-carousel-vue": "^8.4.0",
     "fast-xml-parser": "^4.5.0",
+    "mermaid": "^11.7.0",
     "parse-domain": "^8.2.2",
     "plain-shiki": "^0.0.12",
     "radash": "^12.1.0",

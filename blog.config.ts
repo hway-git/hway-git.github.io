@@ -9,7 +9,7 @@ const blogConfig = {
         name: 'Hiwayo',
         avatar: 'https://imgur.ahway.space/1750426010649.webp',
         email: '2670132411@qq.com',
-        homepage: 'https://ahway.space/',
+        homepage: 'https://hwaygo.top/',
     },
     copyright: {
         abbr: 'CC BY-NC-SA 4.0',

@@ -3,7 +3,7 @@ title: 🚀 在 Nuxt Content 中优雅地使用 Mermaid 图表（附：多图异
 description: 这篇文章介绍了如何在 Nuxt Content 中集成 Mermaid 图表，方便在 Markdown 文件里直接通过特定的语法直接绘制流程图。
 date: 2025-06-21 00:18:40
 updated: 2025-06-21 09:06:22
-image: https://imgur.ahway.space/1750446064506.png
+image: https://imgur.hwaygo.top/1750446064506.png
 recommend: true
 categories: [经验分享]
 tags: [代码]

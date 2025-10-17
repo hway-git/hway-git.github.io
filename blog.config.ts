@@ -46,9 +46,9 @@ const blogConfig = {
     },
 
     twikoo: {
-        js: 'https://gcore.jsdelivr.net/npm/twikoo@1.6.39/dist/twikoo.all.min.js',
-        envId: 'https://twikoo.ahway.space/',
-        preload: 'https://twikoo.ahway.space/',
+        js: 'https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js',
+        envId: 'https://twikoo.hwaygo.top/',
+        preload: 'https://twikoo.hwaygo.top/',
     },
 }
 

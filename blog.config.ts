@@ -7,7 +7,7 @@ const blogConfig = {
     description: 'Hiwayo的个人空间,分享技术与生活。',
     author: {
         name: 'Hiwayo',
-        avatar: 'https://imgur.ahway.space/1750426010649.webp',
+        avatar: 'https://imgur.hwaygo.top/1750426010649.webp',
         email: '2670132411@qq.com',
         homepage: 'https://hwaygo.top/',
     },

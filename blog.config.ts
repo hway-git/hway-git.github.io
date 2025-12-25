@@ -20,7 +20,7 @@ const blogConfig = {
     language: 'zh-CN',
     timeEstablished: '2024-11-17',
     timezone: 'Asia/Shanghai',
-    url: 'https://hwaygo.top/',
+    url: 'https://blog.hwaygo.top/',
 
     feed: {
         limit: 50,

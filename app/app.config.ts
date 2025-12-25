@@ -10,7 +10,8 @@ export default defineAppConfig({
             经验分享: { icon: 'ph:mouse-bold', color: '#3af' },
             生活: { icon: 'ph:shooting-star-bold', color: '#3ba' },
             阅读: { icon: 'f7:book', color: '#77f' },
-            代码: { icon: 'ph:code-bold', color: '#77f' },
+            代码: { icon: 'ph:code-bold', color: '#7f7' },
+            面经: { icon: 'ph:chat', color: '#f77' },
         },
         order: {
             date: '创建日期',
@@ -32,14 +33,6 @@ export default defineAppConfig({
                     { icon: 'ph:rss-simple-bold', text: 'Atom订阅', url: '/atom.xml' },
                 ],
             },
-            // {
-            //     title: '社交',
-            //     items: [],
-            // },
-            // {
-            //     title: '信息',
-            //     items: []
-            // },
         ],
         message: '',
     },

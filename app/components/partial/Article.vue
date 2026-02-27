@@ -63,10 +63,23 @@ const categoryIcon = appConfig.article.categories[categoryLabel!]?.icon
     display: block;
     position: relative;
     margin: 1rem 0;
-    border-radius: 0.8rem;
+    border: 1px solid hsl(var(--hue-theme) 100% 100% / 18%);
+    border-radius: 0.9rem;
+    background-color: var(--ld-bg-card);
+    box-shadow:
+        inset 0 1px 0 hsl(var(--hue-theme) 100% 100% / 28%),
+        0 6px 16px var(--ld-shadow);
+    backdrop-filter: blur(12px) saturate(135%);
+    -webkit-backdrop-filter: blur(12px) saturate(135%);
     color: var(--c-text);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
 
     &:hover {
+        border-color: hsl(var(--hue-theme) 100% 100% / 24%);
+        box-shadow:
+            inset 0 1px 0 hsl(var(--hue-theme) 100% 100% / 34%),
+            0 10px 22px var(--ld-shadow);
+
         .article-cover {
             opacity: 1;
         }

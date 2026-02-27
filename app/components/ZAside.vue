@@ -42,7 +42,7 @@ const widgets = computed(() => (layoutStore.asideItems || []).map(componentAlias
 <style lang="scss" scoped>
 #z-aside {
     overflow: auto;
-    padding: 0.5rem;
+    padding: 0.5rem 0.8rem;
 
     @media (max-width: $breakpoint-widescreen) {
         position: fixed;
@@ -52,15 +52,16 @@ const widgets = computed(() => (layoutStore.asideItems || []).map(componentAlias
         height: auto;
         max-width: 100%;
         max-height: 100%;
+        padding: 0.5rem;
         transition: right 0.2s;
         z-index: 100;
 
         .container {
             padding: 0.5rem;
             border-radius: 1rem;
-            box-shadow: 0 0 1rem var(--ld-shadow);
             background-color: var(--ld-bg-blur);
-            backdrop-filter: blur(0.5rem);
+            backdrop-filter: blur(18px) saturate(150%);
+            -webkit-backdrop-filter: blur(18px) saturate(150%);
         }
 
         &.show {
@@ -117,9 +118,25 @@ const widgets = computed(() => (layoutStore.asideItems || []).map(componentAlias
     }
 
     > .widget-card {
-        padding: 0.2rem 0.8rem;
+        padding: 0.35rem 0.9rem;
+        border: 1px solid hsl(var(--hue-theme) 100% 100% / 18%);
         border-radius: 0.8rem;
-        background-color: var(--c-bg-2);
+        background-color: var(--ld-bg-card);
+        box-shadow:
+            inset 0 1px 0 hsl(var(--hue-theme) 100% 100% / 28%),
+            0 6px 16px var(--ld-shadow);
+        backdrop-filter: blur(12px) saturate(135%);
+        -webkit-backdrop-filter: blur(12px) saturate(135%);
+        transition: transform 0.18s ease, border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+
+        &:hover {
+            transform: translateY(-2px);
+            border-color: hsl(var(--hue-theme) 100% 100% / 24%);
+            background-color: var(--ld-bg-card);
+            box-shadow:
+                inset 0 1px 0 hsl(var(--hue-theme) 100% 100% / 34%),
+                0 10px 22px var(--ld-shadow);
+        }
 
         p, li {
             margin: 0.5em 0;

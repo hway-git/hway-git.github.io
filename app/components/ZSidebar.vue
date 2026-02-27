@@ -14,7 +14,7 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
     <aside id="z-sidebar" :class="{ show: layoutStore.isOpen('sidebar') }">
         <ZHeader class="sidebar-header" to="/" />
         <nav class="sidebar-nav scrollcheck-y">
-            <div class="search-btn sidebar-nav-item gradient-card" @click="layoutStore.toggle('search')">
+            <div class="search-btn sidebar-nav-item" @click="layoutStore.toggle('search')">
                 <Icon name="ph:magnifying-glass-bold" />
                 <span class="nav-text">搜索</span>
                 <span class="keycut widescreen-only">{{ keycut }}</span>
@@ -45,18 +45,18 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
 #z-sidebar {
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
     color: var(--c-text-2);
+    transition: color 0.1s;
 
     @media (max-width: $breakpoint-mobile) {
         position: fixed;
         left: -100%;
         width: 320px;
         max-width: 100%;
-        box-shadow: 0 0 1rem var(--ld-shadow);
-        background-color: var(--ld-bg-blur);
-        backdrop-filter: blur(0.5rem);
         color: currentcolor;
-        transition: left 0.2s;
+        transition: left 0.2s, color 0.1s;
         z-index: 100;
 
         &.show {
@@ -85,7 +85,7 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
 .sidebar-nav {
     flex-grow: 1;
     top: 0;
-    padding: 0 5%;
+    padding: 0 4.5%;
     font-size: 0.9em;
 
     h3 {
@@ -104,11 +104,24 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
     align-items: center;
     gap: 0.5em;
     padding: 0.5em 1em;
-    border-radius: 0.5em;
-    transition: all 0.2s;
+    border: 1px solid transparent;
+    border-radius: 0.75em;
+    transition: transform 0.18s ease, box-shadow 0.22s ease, background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease;
 
-    &:hover, &.router-link-active {
-        background-color: var(--c-bg-soft);
+    &:hover {
+        transform: translateY(-1px);
+        border-color: hsl(var(--hue-theme) 100% 100% / 18%);
+        background-color: var(--c-bg-a50);
+        box-shadow: inset 0 1px 0 hsl(var(--hue-theme) 100% 100% / 24%);
+        color: var(--c-text);
+    }
+
+    &.router-link-active {
+        border-color: hsl(var(--hue-theme) 100% 100% / 28%);
+        background-color: var(--ld-bg-card);
+        box-shadow:
+            inset 0 1px 0 hsl(var(--hue-theme) 100% 100% / 34%),
+            0 6px 16px hsl(var(--hue-theme) 30% 20% / 12%);
         color: var(--c-text);
     }
 
@@ -135,13 +148,13 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
 
 .search-btn {
     margin-block: 1rem;
-    outline: 1px solid var(--c-border);
-    outline-offset: -1px;
+    border-color: hsl(var(--hue-theme) 100% 100% / 26%);
+    background-color: var(--c-bg-a50);
+    box-shadow: inset 0 1px 0 hsl(var(--hue-theme) 100% 100% / 26%);
     cursor: text;
 
     &:hover {
-        outline-color: transparent;
-        background-color: transparent;
+        border-color: hsl(var(--hue-theme) 100% 100% / 32%);
     }
 
     .keycut {
@@ -154,6 +167,9 @@ const keycut = computed(() => navigator?.userAgent.includes('Mac OS') ? '⌘K' :
 }
 
 .sidebar-footer {
+    margin: 0.2rem 0.5rem 0.5rem;
+    padding-top: 0.4rem;
+    border-top: 1px solid hsl(var(--hue-theme) 100% 100% / 14%);
     font-size: 0.8em;
     text-align: center;
     color: var(--c-text-2);

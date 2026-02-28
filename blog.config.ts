@@ -16,7 +16,7 @@ const blogConfig = {
         name: '署名-非商业性使用-相同方式共享 4.0 国际',
         url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans',
     },
-    favicon: '/favicon.png',
+    favicon: '/favicon.ico',
     language: 'zh-CN',
     timeEstablished: '2024-11-17',
     timezone: 'Asia/Shanghai',
@@ -28,7 +28,7 @@ const blogConfig = {
 
     hideContentPrefixes: ['/posts'],
 
-    imageDomains: [],
+    imageDomains: ["imgur.hwaygo.top"],
 
     robotsNotIndex: ['/preview', '/previews/*'],
 
